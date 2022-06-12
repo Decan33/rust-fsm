@@ -1,3 +1,4 @@
+#[derive(PartialEq)]
 enum MachineState {
     EmptyState = 0,
     Space = 1,
@@ -17,14 +18,38 @@ fn read_tape(tape: &str) {
 
     let mut current_state = MachineState::EmptyState;
     let mut prev_state = MachineState::EmptyState;
+    let mut column_state = MachineState::EmptyState;
 
     let mut cum_sum = 0;
     let mut new_str = String::new();
+    let mut curr_token = String::new();
     
 
     for letter in tape.chars() {
-        
+        column_state = get_state_column(letter);
+
+        current_state = todo!("Implement tomorrow!");
+
+        if current_state == MachineState::EmptyState {
+            todo!("Finish sometime");
+        } 
     }
+}
+
+fn get_state_column(chr: char) -> MachineState {
+    if chr.is_alphabetic() {
+        return MachineState::Character;
+    }
+
+    if chr.is_ascii_digit() {
+        return MachineState::Number;
+    }
+
+    if chr.is_whitespace() {
+        return MachineState::Space;
+    }
+
+    MachineState::Error
 }
 
 

@@ -54,5 +54,5 @@ fn get_state_column(chr: char) -> MachineState {
 
 
 fn main() {
-    let example_input = String::from("10 20 30 40 50 60");
+    let example_input = String::from("10 20 30 40");
 }
